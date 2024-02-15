@@ -1,4 +1,4 @@
-package orm
+package main
 
 import (
 	"log"
@@ -14,6 +14,7 @@ func main() {
 		Addr:    ":8000",
 		Handler: router,
 	}
+	log.Println("Server starting on port 8000 ......")
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Println("Error running the server:", err)
