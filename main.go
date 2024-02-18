@@ -10,6 +10,12 @@ import (
 func main() {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/user", Getallusers).Methods("GET")
+	router.HandleFunc("/user", CreateUser).Methods("POST")
+	router.HandleFunc("/user/{id}", GetUserByID).Methods("GET")
+	router.HandleFunc("/user/{id}", Delete).Methods("DELETE")
+	router.HandleFunc("/user/update/{id}", Update).Methods("POST")
+
 	server := http.Server{
 		Addr:    ":8000",
 		Handler: router,
